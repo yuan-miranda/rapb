@@ -1,7 +1,7 @@
-int relayPin = 2;
+int relayPin = 2; // D2 pin on arduino connected to the relay module's IN pin
 
 void setup() {
-  pinMode(relayPin, OUTPUT);  // D2 pin on arduino connected to the relay module IN pin
+  pinMode(relayPin, OUTPUT);
   Serial.begin(9600);
 }
 
@@ -10,22 +10,22 @@ void loop() {
     char command = Serial.read();
     
     // Turn off the relay
-    if (command == '0') {
-      digitalWrite(relayPin, HIGH);
-
-      // Turn on the relay
-    } else if (command == '1') {
+    if (command == '1') {
       digitalWrite(relayPin, LOW);
 
+      // Turn on the relay
+    } else if (command == '0') {
+      digitalWrite(relayPin, HIGH);
+      
       // Get the relay status
     } else if (command == '2') {
       bool currentState = digitalRead(relayPin);
       
       if (!currentState) {
-        Serial.println("-          charger turned on");
+        Serial.println("charger turned on");
 
       } else {
-        Serial.println("-          charger turned off");
+        Serial.println("charger turned off");
       }
     }
   }
