@@ -4,9 +4,12 @@ Control the power brick (laptop charger) remotely using Arduino[<sup>1</sup>](ht
 > [rapb.ino](src/rapb/rapb.ino) source code of the Arduino<br>
 > [rapb.py](src/rapb.py) is the Python file used to communicate and send command to the Arduino
 
-Commands:
-- <b>on:</b> turn on the relay<br>
-- <b>off:</b> turn off the relay<br>
-- <b>status:</b> Get the status of the relay<br>
-- <b>restart:</b> verbosed version of "off" command lol<br>
-- <b>exit:</b> exit the script<br>
+<pre>
+Commands and Shortcuts:
+on,            1 : Turn on the relay
+off,           0 : Turn off the relay
+status,  sts,  2 : Get the relay status
+restart, res,  3 : Verbosed version of "off" command lol
+exit,    quit, q : Exit the script
+help,          h : Print the help page
+</pre>
