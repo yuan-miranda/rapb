@@ -1,4 +1,4 @@
-int relayPin = 2; // D2 pin on arduino connected to the relay module's IN pin
+int relayPin = 2; // D2 pin on Arduino 
 
 void setup() {
   pinMode(relayPin, OUTPUT);
