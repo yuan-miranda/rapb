@@ -21,7 +21,7 @@ def command(input, selection=[]):
     return False
 
 def help():
-    print("""Remote Access Power Brick (RAPB)
+    print("""Remote Accessed Power Brick (RAPB)
 Control the power brick (laptop charger) remotely using Arduino and a relay module via serial communication interface.
 Commands and Shortcuts:
 on,            1 : Turn on the relay
