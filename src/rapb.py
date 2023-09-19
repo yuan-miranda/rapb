@@ -3,22 +3,15 @@ import serial
 # Change "COM3" based on what USB port your using for Arduino
 ser = serial.Serial("COM3", 9600, timeout=1)
 
-def turnOnCharger():  # Turn on the relay
+def turn_on():  # Turn on the relay
     ser.write(b'1')
 
-def turnOffCharger(): # Turn off the relay
+def turn_off(): # Turn off the relay
     ser.write(b'0')
 
-def fetchStatus():    # Get the relay status
+def get_status(): # Get the relay status
     ser.write(b'2')
     print(ser.readline().decode().strip())
-
-# Read this as "if command in input is in the selection"
-def command(input, selection=[]):
-    for option in selection:
-        if input == option:
-            return True
-    return False
 
 def help():
     print("""Remote Accessed Power Brick (RAPB)
@@ -33,20 +26,26 @@ help,          h : Print the help page""")
 
 while True:
     # Get user input
-    userInput = input("rapb.py: ")
+    user_input = input("rapb.py: ")
     
-    if command(userInput, ["on", '1']):
-        turnOnCharger()
-    elif command(userInput, ["off",'0']):
-        turnOffCharger()
-    elif command(userInput, ["status", "sts", '2']):
-        fetchStatus()
-    elif command(userInput, ["restart", "res", '3']):
-        turnOffCharger() # LMAO
-    elif command(userInput, ["exit", "quit", 'q']):
+    if user_input in ["on", '1']:
+        turn_on()
+
+    elif user_input in ["off",'0']:
+        turn_off()
+
+    elif user_input in ["status", "sts", '2']:
+        get_status()
+
+    elif user_input in ["restart", "res", "3"]:
+        turn_off() # LMAO
+
+    elif user_input in ["exit", "quit", 'q']:
         break
-    elif command(userInput, ["help", 'h']):
+
+    elif user_input in ["help", 'h']:
         help()
+
     else:
         print("invalid command")
 
