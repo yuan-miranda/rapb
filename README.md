@@ -1,9 +1,10 @@
-### Remote Accessed Power Brick (RAPB)
-Control the power brick (laptop charger) remotely using Arduino[<sup>1</sup>](https://en.wikipedia.org/wiki/Arduino) and a relay module[<sup>2</sup>](https://www.elprocus.com/5v-relay-module/) via serial communication interface[<sup>3</sup>](https://en.wikipedia.org/wiki/Serial_communication).
+## Remote Accessed Power Brick (RAPB)
+Control the power brick (laptop charger) remotely using AnyDesk WOL feature, Arduino and a relay communicating module via serial communication interface.
 
 > [rapb.ino](src/rapb/rapb.ino) source code of the Arduino<br>
 > [rapb.py](src/rapb.py) is the Python file used to communicate and send command to the Arduino
 
+## Usage
 <pre>
 Commands and Shortcuts:
 on,            1 : Turn on the relay
