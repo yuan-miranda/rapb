@@ -4,13 +4,13 @@ import serial
 ser = serial.Serial("COM3", 9600, timeout=1)
 
 def turn_on():  # Turn on the relay
-    ser.write(b'1')
+    ser.write(b"1")
 
 def turn_off(): # Turn off the relay
-    ser.write(b'0')
+    ser.write(b"0")
 
 def get_status(): # Get the relay status
-    ser.write(b'2')
+    ser.write(b"2")
     print(ser.readline().decode().strip())
 
 def help():
@@ -28,22 +28,22 @@ while True:
     # Get user input
     user_input = input("rapb.py: ")
     
-    if user_input in ["on", '1']:
+    if user_input in ["on", "1"]:
         turn_on()
 
-    elif user_input in ["off",'0']:
+    elif user_input in ["off","0"]:
         turn_off()
 
-    elif user_input in ["status", "sts", '2']:
+    elif user_input in ["status", "sts", "2"]:
         get_status()
 
     elif user_input in ["restart", "res", "3"]:
         turn_off() # LMAO
 
-    elif user_input in ["exit", "quit", 'q']:
+    elif user_input in ["exit", "quit", "q"]:
         break
 
-    elif user_input in ["help", 'h']:
+    elif user_input in ["help", "h"]:
         help()
 
     else:
